@@ -56,7 +56,13 @@ const ExpenseForm = (props)=>{
         setEnteredTitle('');
         setEnteredAmount('');
         setEnteredDate('');
+        //calling cancelExpense in newexpense.js to update flag
+        props.cancelExpense(false);
     };
+    const cancelExpenseHandler = () => {
+        //calling cancelExpense in newexpense.js to update flag
+        props.cancelExpense(false);
+    }
     return (
     <form onSubmit={submitHandler}>
         <div className="new-expense__controls">
@@ -74,6 +80,7 @@ const ExpenseForm = (props)=>{
             </div>
         </div>
         <div className="new-expense__actions">
+            <button type="button" onClick={cancelExpenseHandler}>Cancel</button>
             <button type="submit">Add Expense</button>
         </div>
     </form>)
